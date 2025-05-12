@@ -44,7 +44,7 @@ pipeline {
                 withCredentials([usernamePassword(credentialsId: "aws_user", usernameVariable: "AWS_ACCESS_KEY_ID", passwordVariable: "AWS_SECRET_ACCESS_KEY")]) {
                     script {
                         dev_sts_json = sh(
-                            script: "aws sts assume-role --role-arn 'arn:aws:iam::338714738346:role/admin-assume-role' --role-session-name test-jenkins",
+                            script: "aws sts assume-role --role-arn 'arn:aws:iam::1234567890:role/admin-assume-role' --role-session-name test-jenkins",
                             returnStdout: true
                         )
                         dev_sts_json = readJSON(text: dev_sts_json)
