@@ -8,7 +8,7 @@ secret_names = {
 // ---------------------------------------------------------------------------
 // Account & Env Variables
 environment                = "dev"
-aws_account_number         = "338714738346"
+aws_account_number         = "420602990842"
 aws_tags_user = {
   Environment : "Development"
 }
