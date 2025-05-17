@@ -1,12 +1,9 @@
-// Variable Block //
 variable "secret_names" {
   type        = map(any)
   description = "Name of the secret."
 }
 
 variable "secret_strings" {}
-
-// Resource block //
 
 resource "aws_secretsmanager_secret" "sm" {
   for_each                = tomap(var.secret_names)
