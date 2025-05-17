@@ -1,5 +1,4 @@
-// ---------------------------------------------------------------------------
-// Dev & Deploy Auth Vars
+# Dev & Deploy Auth Vars
 variable "aws_credential_file" {
   type    = string
   default = "~/.aws/credentials"
@@ -10,9 +9,7 @@ variable "aws_profile" {
   default = null
 }
 
-// ---------------------------------------------------------------------------
-
-// Project Vars
+# Project Vars
 variable "project_prefix" {
   type    = string
   default = "eyproject"
@@ -46,7 +43,6 @@ locals {
   )
 }
 
-// ---------------------------------------------------------------------------
 // AWS Account Vars
 variable "aws_region" {
   type    = string
@@ -56,5 +52,3 @@ variable "aws_region" {
 variable "aws_account_number" {
   type = string
 }
-
-// ---------------------------------------------------------------------------
