@@ -18,8 +18,8 @@ module "iam_policy_format_create" {
   policy_file_path = each.value
 
   policy_template_variable_map = {
-    project_prefix     = var.project_prefix # Required
-    environment        = var.environment    # Required
+    project_prefix     = var.project_prefix 
+    environment        = var.environment    
     aws_region         = var.aws_region
     aws_account_number = var.aws_account_number
   }
@@ -31,8 +31,8 @@ module "iam_role_create" {
   role_config_file_path = each.value
 
   role_template_variable_map = {
-    project_prefix     = var.project_prefix # Required
-    environment        = var.environment    # Required
+    project_prefix     = var.project_prefix 
+    environment        = var.environment   
     aws_region         = var.aws_region
     aws_account_number = var.aws_account_number
   }
@@ -45,8 +45,8 @@ module "iam_user_policy_format_create" {
   user_policy_file_path = each.value
 
   policy_template_variable_map = {
-    project_prefix     = var.project_prefix # Required
-    environment        = var.environment    # Required
+    project_prefix     = var.project_prefix 
+    environment        = var.environment   
     aws_region         = var.aws_region
     aws_account_number = var.aws_account_number
   }
