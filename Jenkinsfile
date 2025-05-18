@@ -2,11 +2,6 @@ pipeline {
     agent any
 
     stages {
-        stage ("checkout from GIT") {
-            steps {
-                git branch: 'main_backup', url: 'https://github.com/HariDEV-GIT/AWS-CICD.git'
-            }
-        }
         stage ("terraform init") {
             steps {
                 sh 'terraform init'
