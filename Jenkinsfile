@@ -1,9 +1,6 @@
 pipeline {
     agent any
     options { disableConcurrentBuilds() }
-    environment {
-        TF_HOME = tool 'terraform'
-    }
     stages {
         stage('List workspace') {
             steps {
@@ -13,14 +10,15 @@ pipeline {
                     '''
             }
         }
-  /*      stage('Terraform version(build-in-tooling)') {
+        stage('Terraform version(build-in-tooling)') {
             steps {
            //     withEnv(["PATH=${tool 'Terraform'}:$PATH"]) {
                 sh '''
                     terraform --version
+                    pwd
                     '''
             }
-        } */
+        } 
         stage('Terraform Init - Devevlop') {
             steps {
                 withCredentials([
