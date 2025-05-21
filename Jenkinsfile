@@ -4,7 +4,7 @@ pipeline {
         disableConcurrentBuilds()
     }
     environment {
-        'TF_HOME = '/usr/bin/terraform'
+        TF_HOME = '/usr/bin/terraform'
     }
     stages {
         stage('List workspace') {
