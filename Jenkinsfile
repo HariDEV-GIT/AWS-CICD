@@ -48,7 +48,7 @@ pipeline {
                 }
             }
         }
-        stage('Terraform Apply - Develop') {
+/*        stage('Terraform Apply - Develop') {
             when {branch 'develop'}
             steps {
                 withCredentials([
@@ -73,7 +73,7 @@ pipeline {
                             '''
                 }
             }
-        }
+        } */
 
 /*
         stage('Terraform destroy') {
