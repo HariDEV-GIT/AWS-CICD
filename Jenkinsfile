@@ -13,14 +13,14 @@ pipeline {
                     '''
             }
         }
-        stage('Terraform version(build-in-tooling)') {
+  /*      stage('Terraform version(build-in-tooling)') {
             steps {
            //     withEnv(["PATH=${tool 'Terraform'}:$PATH"]) {
                 sh '''
                     terraform --version
                     '''
             }
-        }
+        } */
         stage('Terraform Init - Devevlop') {
             steps {
                 withCredentials([
