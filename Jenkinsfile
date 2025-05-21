@@ -12,7 +12,7 @@ pipeline {
         }
         stage('Terraform version(build-in-tooling)') {
             steps {
-                withEnv(["PATH=${tool 'Terraform'}:$PATH"]) {
+           //     withEnv(["PATH=${tool 'Terraform'}:$PATH"]) {
                 sh '''
                     terraform --version
                     '''
