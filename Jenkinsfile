@@ -1,6 +1,9 @@
 pipeline {
     agent any
     options { disableConcurrentBuilds() }
+    environment {
+        TF_HOME = tool 'terraform'
+    }
     stages {
         stage('List workspace') {
             steps {
@@ -23,7 +26,7 @@ pipeline {
                 withCredentials([
                     usernamePassword(credentialsId: 'aws_jenkins_user_develop', passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable: 'AWS_ACCESS_KEY_ID')]){
                         sh '''
-                            terraform init
+                            ${TF_HOME}/terraform init
                             '''
                 }
             }
