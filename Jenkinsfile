@@ -3,8 +3,8 @@ pipeline {
     options {
         disableConcurrentBuilds()
     }
-    tools {
-        terraform 'terraform'
+    environment {
+        TF_HOME = tool 'terraform'
     }
     stages {
         stage('List workspace') {
@@ -18,14 +18,14 @@ pipeline {
         stage('Terraform Init - Develop') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'aws_jenkins_user_develop', passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable: 'AWS_ACCESS_KEY_ID')]) {
-                    sh 'terraform init'
+                    sh "${TF_HOME}/terraform init"
                 }
             }
         }
         stage('Terraform Init - Prod') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'aws_jenkins_user_prod', passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable: 'AWS_ACCESS_KEY_ID')]) {
-                    sh 'terraform init'
+                    sh "${TF_HOME}/terraform init"
                 }
             }
         }
