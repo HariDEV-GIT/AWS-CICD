@@ -22,9 +22,8 @@ pipeline {
             steps {
                 withCredentials([
                     usernamePassword(credentialsId: 'aws_jenkins_user_develop', passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable: 'AWS_ACCESS_KEY_ID')]){
-                        sh '''#!/bin/bash
+                        sh '''
                             terraform init
-                            ls
                             '''
                 }
             }
