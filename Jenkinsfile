@@ -14,6 +14,10 @@ pipeline {
                     pwd
                 '''
             }
+            steps {
+                cleanWs()
+            }
+
         }
         stage('Terraform Init - Develop') {
             steps {
