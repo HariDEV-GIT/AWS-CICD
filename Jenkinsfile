@@ -10,10 +10,13 @@ pipeline {
                     '''
             }
         }
-        stage('List workspace test') {
+        stage('Terraform version(build-in-tooling)') {
             steps {
-                sh '''#!/bin/bash
+                withEnv(["PATH=${tool 'Terraform'}:$PATH"]) {
+                sh '''
+                    terraform --version
                     '''
+                }
             }
         }
         stage('Terraform Init - Devevlop') {
@@ -21,7 +24,7 @@ pipeline {
                 withCredentials([
                     usernamePassword(credentialsId: 'aws_jenkins_user_develop', passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable: 'AWS_ACCESS_KEY_ID')]){
                         sh '''#!/bin/bash
-                            ./terraform init
+                            terraform init
                             ls
                             '''
                 }
