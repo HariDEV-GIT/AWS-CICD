@@ -7,17 +7,12 @@ pipeline {
                 sh '''#!/bin/bash
                     ls -la ${workspace}
                     pwd
-                    cat read.txt
-                    cat read1.txt
-                    cp -r read1.txt read.txt
-                    cat read.txt
                     '''
             }
         }
         stage('List workspace test') {
             steps {
                 sh '''#!/bin/bash
-                    cat read.txt
                     '''
             }
         }
