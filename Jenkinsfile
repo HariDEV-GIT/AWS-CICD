@@ -14,6 +14,8 @@ pipeline {
                     pwd
                 '''
             }
+        }
+        stage('Clean Workspace') {
             steps {
                 cleanWs()
             }
