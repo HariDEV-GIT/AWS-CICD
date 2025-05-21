@@ -17,7 +17,6 @@ pipeline {
             steps {
                 cleanWs()
             }
-    }
         }
         stage('Terraform Init - Develop') {
             steps {
