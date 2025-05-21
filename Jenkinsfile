@@ -25,7 +25,7 @@ pipeline {
         stage('Terraform Init - Prod') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'aws_jenkins_user_prod', passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable: 'AWS_ACCESS_KEY_ID')]) {
-                    sh "${TF_HOME}/terraform init"
+                    sh "terraform init"
                 }
             }
         }
