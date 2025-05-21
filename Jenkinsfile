@@ -3,6 +3,9 @@ pipeline {
     options {
         disableConcurrentBuilds()
     }
+    tools {
+        terraform 'terraform'
+    }
     stages {
         stage('List workspace') {
             steps {
