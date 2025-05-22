@@ -1,4 +1,3 @@
-# Dev & Deploy Auth Vars
 variable "aws_credential_file" {
   type    = string
   default = "~/.aws/credentials"
@@ -9,10 +8,9 @@ variable "aws_profile" {
   default = null
 }
 
-# Project Vars
 variable "project_prefix" {
   type    = string
-  default = "eyproject"
+  default = "techops"
 }
 
 variable "environment" {
@@ -33,20 +31,14 @@ locals {
   aws_tags_global = merge(
     var.aws_tags_user,
     {
-      Application          = "client"
-      Consumer             = "email@abc.com"
-      Costcenter           = "1111111"
-      Division             = "ABC"
-      NetworkActivityCodes = "0000000"
-      DataClassification   = "Non-Sensitive"
+      Name          = "Hari"
     }
   )
 }
 
-// AWS Account Vars
 variable "aws_region" {
   type    = string
-  default = "us-east-1"
+  default = "eu-west-3"
 }
 
 variable "aws_account_number" {
