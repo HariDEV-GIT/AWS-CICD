@@ -40,8 +40,8 @@ pipeline {
             steps {
                 sh 'pwd'
                 sh 'ls tfvars/dev.tfvars'
-                sh 'ls -lah'
-                sh 'ls -lah tfvars'
+                sh 'ls -lah ${WORKSPACE}'
+                sh 'ls -lah ${WORKSPACE}/tfvars'
                 withCredentials([
                     usernamePassword(credentialsId: 'aws_jenkins_user_develop', 
                                      passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable: 'AWS_ACCESS_KEY_ID'),
