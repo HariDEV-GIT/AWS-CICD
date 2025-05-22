@@ -26,13 +26,13 @@ data_source_paths_sharepoint = [
 ]
 
 abc_crawlernames = {
-  "eyproject-crawler1" = "testing/folder1/"
-  "eyproject-crawler2" = "testing/folder2/"
-  "eyproject-crawler3" = "testing/folder3/"
-  "eyproject-crawler4" = "testing/folder4/"
-  "eyproject-crawler5" = "testing/folder5/"
-  "eyproject-crawler6" = "testing/folder6/"
-  "eyproject-crawler7" = "testing/folder7/"
-  "eyproject-crawler8" = "testing/folder8/"
-  "eyproject-crawler9" = "testing/folder9/"
+  "project-crawler1" = "testing/folder1/"
+  "project-crawler2" = "testing/folder2/"
+  "project-crawler3" = "testing/folder3/"
+  "project-crawler4" = "testing/folder4/"
+  "project-crawler5" = "testing/folder5/"
+  "project-crawler6" = "testing/folder6/"
+  "project-crawler7" = "testing/folder7/"
+  "project-crawler8" = "testing/folder8/"
+  "project-crawler9" = "testing/folder9/"
 }
