@@ -15,24 +15,24 @@ aws_tags_user = {
 
 // ---------------------------------------------------------------------------
 // Glue Catalog Variables
-glue_db_list = ["eyproject_analysis_dev"]
+glue_db_list = ["demo_db_dev"]
 
 // ---------------------------------------------------------------------------
 // Glue Crawler Variables
-data_catalog_crawler = "eyproject_analysis_dev"
+data_catalog_crawler = "demo_db_dev"
 data_source_paths_sharepoint = [
   "sharepoint/",
   "sqi_tracking/SQI_TRACKING_MASTER/"
 ]
 
 abc_crawlernames = {
-  "eyproject-crawler1" = "curated/folder1/"
-  "eyproject-crawler2" = "curated/folder2/"
-  "eyproject-crawler3" = "curated/folder3/"
-  "eyproject-crawler4" = "curated/folder4/"
-  "eyproject-crawler5" = "curated/folder5/"
-  "eyproject-crawler6" = "curated/folder6/"
-  "eyproject-crawler7" = "curated/folder7/"
-  "eyproject-crawler8" = "curated/folder8/"
-  "eyproject-crawler9" = "curated/folder9/"
+  "eyproject-crawler1" = "testing/folder1/"
+  "eyproject-crawler2" = "testing/folder2/"
+  "eyproject-crawler3" = "testing/folder3/"
+  "eyproject-crawler4" = "testing/folder4/"
+  "eyproject-crawler5" = "testing/folder5/"
+  "eyproject-crawler6" = "testing/folder6/"
+  "eyproject-crawler7" = "testing/folder7/"
+  "eyproject-crawler8" = "testing/folder8/"
+  "eyproject-crawler9" = "testing/folder9/"
 }
