@@ -47,7 +47,7 @@ pipeline {
                                      passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable: 'AWS_ACCESS_KEY_ID'),
                     file(credentialsId: 'dev_secrets_tfvars', variable: 'secrets_vars')
                 ]) {
-                    sh "terraform plan -var-file='../tfvars/dev.tfvars' -var-file='${secrets_vars}'"
+                    sh "terraform plan -var-file=tfvars/dev.tfvars -var-file='${secrets_vars}'"
                 }
             }
         }
@@ -62,7 +62,7 @@ pipeline {
                                      passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable: 'AWS_ACCESS_KEY_ID'),
                     file(credentialsId: 'dev_secrets_tfvars', variable: 'secrets_vars')
                 ]) {
-                    sh "terraform plan -var-file='../tfvars/prod.tfvars' -var-file='${secrets_vars}'"
+                    sh "terraform plan -var-file=tfvars/prod.tfvars -var-file='${secrets_vars}'"
                 }
             }
         }
