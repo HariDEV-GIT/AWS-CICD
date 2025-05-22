@@ -5,7 +5,7 @@ resource "aws_sns_topic" "user_updates" {
 }
 
 resource "aws_s3_bucket" "my" {
-  bucket = "eyproject-abc-data-devv"
+  bucket = "terraform-tfstate-data-dev"
   force_destroy= true
   server_side_encryption_configuration {
     rule {
