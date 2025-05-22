@@ -28,7 +28,7 @@ resource "aws_glue_crawler" "SHAREPOINT_DATA_CRAWLER" {
   dynamic "s3_target" {
     for_each = var.data_source_paths_sharepoint
     content {
-      path = "s3://eyproject-abc-data-${var.environment}/curated/${s3_target.value}"
+      path = "s3://terraform-tfstate-data-${var.environment}/test/${s3_target.value}"
     }
   }
 }
