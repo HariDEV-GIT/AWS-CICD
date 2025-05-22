@@ -38,6 +38,8 @@ pipeline {
         }
         stage('Terraform Plan - Develop') {
             steps {
+                sh 'pwd'
+                sh 'ls tfvars/dev.tfvars'
                 withCredentials([
                     usernamePassword(credentialsId: 'aws_jenkins_user_develop', 
                                      passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable: 'AWS_ACCESS_KEY_ID'),
@@ -49,6 +51,8 @@ pipeline {
         }
         stage('Terraform Plan - Prod') {
             steps {
+                sh 'pwd'
+                sh 'ls tfvars/dev.tfvars'
                 withCredentials([
                     usernamePassword(credentialsId: 'aws_jenkins_user_prod', 
                                      passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable: 'AWS_ACCESS_KEY_ID'),
