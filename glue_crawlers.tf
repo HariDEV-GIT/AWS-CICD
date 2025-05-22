@@ -15,10 +15,9 @@ resource "aws_glue_crawler" "abc-crawlers" {
   name          = each.key
   role          = "arn:aws:iam::${var.aws_account_number}:role/${var.project_prefix}-${var.environment}-glue-role"
   s3_target {
-    path = "s3://eyproject-abc-data-${var.environment}/${each.value}"
+    path = "s3://terraform-tfstate-data-${var.environment}/${each.value}"
   }
 }
-
 
 resource "aws_glue_crawler" "SHAREPOINT_DATA_CRAWLER" {
   database_name = var.data_catalog_crawler
