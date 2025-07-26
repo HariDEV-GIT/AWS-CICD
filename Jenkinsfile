@@ -15,11 +15,11 @@ pipeline {
                 '''
             }
         }
-        stage('Clean Workspace') {
-            steps {
-                cleanWs()
-            }
-        }
+        // stage('Clean Workspace') {
+        //     steps {
+        //         cleanWs()
+        //     }
+        // }
         stage('Terraform Init - Develop') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'aws_jenkins_user_develop', 
