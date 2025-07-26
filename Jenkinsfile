@@ -15,23 +15,14 @@ pipeline {
                 '''
             }
         }
-        // stage('Clean Workspace') {
-        //     steps {
-        //         cleanWs()
-        //     }
-        // }
+        stage('Clean Workspace') {
+            steps {
+                cleanWs()
+            }
+        }
         stage('Terraform Init - Develop') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'aws_jenkins_user_develop', 
-                                passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable: 'AWS_ACCESS_KEY_ID')]) 
-                {
-                    sh "terraform init"
-                }
-            }
-        }
-        stage('Terraform Init - Prod') {
-            steps {
-                withCredentials([usernamePassword(credentialsId: 'aws_jenkins_user_prod', 
                                 passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable: 'AWS_ACCESS_KEY_ID')]) 
                 {
                     sh "terraform init"
@@ -51,6 +42,15 @@ pipeline {
                 ]) 
                 {
                     sh "${TF_HOME}/terraform plan -var-file=${WORKSPACE}/tfvars/dev.tfvars -var-file='${secrets_vars}'"
+                }
+            }
+        }
+        stage('Terraform Init - Prod') {
+            steps {
+                withCredentials([usernamePassword(credentialsId: 'aws_jenkins_user_prod', 
+                                passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable: 'AWS_ACCESS_KEY_ID')]) 
+                {
+                    sh "terraform init"
                 }
             }
         }
