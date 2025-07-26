@@ -5,6 +5,8 @@ pipeline {
     }
     environment {
         TF_HOME = '/usr/bin/terraform'
+        AWS_ACCESS_KEY_ID = credentials('aws-access-key')
+        AWS_SECRET_ACCESS_KEY = credentials('aws-secret-key')
     }
     stages {
         stage('List workspace') {
@@ -22,16 +24,17 @@ pipeline {
         }
         stage('Terraform Init - Develop') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'aws_jenkins_user_develop', 
-                                passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable: 'AWS_ACCESS_KEY_ID')]) {
+                // withCredentials([usernamePassword(credentialsId: 'aws_jenkins_user_develop', 
+                                // passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable: 'AWS_ACCESS_KEY_ID')]) {
                     sh "terraform init"
                 }
             }
         }
         stage('Terraform Init - Prod') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'aws_jenkins_user_prod', 
-                                passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable: 'AWS_ACCESS_KEY_ID')]) {
+                // withCredentials([usernamePassword(credentialsId: 'aws_jenkins_user_prod', 
+                                // passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable: 'AWS_ACCESS_KEY_ID')]) 
+                {
                     sh "terraform init"
                 }
             }
@@ -42,11 +45,12 @@ pipeline {
                 sh 'ls tfvars/dev.tfvars'
                 sh 'ls -lah ${WORKSPACE}'
                 sh 'ls -lah ${WORKSPACE}/tfvars'
-                withCredentials([
-                    usernamePassword(credentialsId: 'aws_jenkins_user_develop', 
-                                     passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable: 'AWS_ACCESS_KEY_ID'),
-                    file(credentialsId: 'dev_secrets_tfvars', variable: 'secrets_vars')
-                ]) {
+                // withCredentials([
+                //     usernamePassword(credentialsId: 'aws_jenkins_user_develop', 
+                //                      passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable: 'AWS_ACCESS_KEY_ID'),
+                //     file(credentialsId: 'dev_secrets_tfvars', variable: 'secrets_vars')
+                // ]) 
+                {
                     sh "${TF_HOME}/terraform plan -var-file=${WORKSPACE}/tfvars/dev.tfvars -var-file='${secrets_vars}'"
                 }
             }
@@ -57,11 +61,12 @@ pipeline {
                 sh 'ls tfvars/dev.tfvars'
                 sh 'ls -lah ${WORKSPACE}'
                 sh 'ls -lah ${WORKSPACE}/tfvars'
-                withCredentials([
-                    usernamePassword(credentialsId: 'aws_jenkins_user_prod', 
-                                     passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable: 'AWS_ACCESS_KEY_ID'),
-                    file(credentialsId: 'dev_secrets_tfvars', variable: 'secrets_vars')
-                ]) {
+                // withCredentials([
+                    // usernamePassword(credentialsId: 'aws_jenkins_user_prod', 
+                                     // passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable: 'AWS_ACCESS_KEY_ID'),
+                    // file(credentialsId: 'dev_secrets_tfvars', variable: 'secrets_vars')
+                // ]) 
+                {
                     sh "${TF_HOME}/terraform plan -var-file=${WORKSPACE}/tfvars/prod.tfvars -var-file='${secrets_vars}'"
                 }
             }
